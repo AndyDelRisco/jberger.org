@@ -64,7 +64,7 @@ header h2 {
 }
 
 .bar-section ul li ul {
-	list-style: disc inside;
+	list-style: disc outside;
 	margin-left: 20px;
 	font-size: 13px; 
 }
@@ -84,4 +84,8 @@ header h2 {
 
 span.category {
 	cursor: pointer;
+}
+
+ul.articles {
+	display: none;
 }

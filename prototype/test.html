@@ -4,6 +4,12 @@
 <meta charset="utf-8">
 <title>Jacques Berger - informaticien</title>
 <link href="test.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script type="text/javascript">
+function toggleArticles(tagId) {
+	$("#" + tagId).slideToggle();
+}
+</script>
 </head>
 <body>
 	<div id="page">
@@ -43,19 +49,19 @@
 			<div class="bar-section">
 				<h2 class="title">Articles</h2>
 				<ul>
-					<li><span class="category">Littérature technique (2)</span>
-						<ul>
+					<li><span class="category" onclick="toggleArticles('cat1');">Littérature technique (2)</span>
+						<ul class="articles" id="cat1">
 							<li><a href="#">Critique de Clean Code : A Handbook of
 									Agile Software Craftmanship</a></li>
 							<li><a href="#">Critique de Working Effectively with
 									Legacy Code</a></li>
 						</ul></li>
-					<li><span class="category">Carrière (1)</span>
-						<ul>
+					<li><span class="category" onclick="toggleArticles('cat2');">Carrière (1)</span>
+						<ul class="articles" id="cat2">
 							<li><a href="#">Améliorer son salaire en trois ans</a></li>
 						</ul></li>
-					<li><span class="category">Technologie (4)</span>
-						<ul>
+					<li><span class="category" onclick="toggleArticles('cat3');">Technologie (4)</span>
+						<ul class="articles" id="cat3">
 							<li><a href="#">Programmation par aspects</a></li>
 							<li><a href="#">Comparaison d'Oracle et SQL Server</a></li>
 							<li><a href="#">Architecture Javascript</a></li>
