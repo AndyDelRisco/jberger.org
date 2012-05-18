@@ -12,7 +12,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-
 body {
 	background: #E0D6CC;
 	color: #000000;
@@ -81,11 +80,11 @@ header h2 {
 .bar-section ul li ul {
 	list-style: disc outside;
 	margin-left: 20px;
-	font-size: 13px; 
+	font-size: 13px;
 }
 
 .bar-section ul li ul li {
-    margin-top: 0px;
+	margin-top: 0px;
 }
 
 .bar-section a {
