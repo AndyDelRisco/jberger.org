@@ -4,5 +4,5 @@ jberger.org
 Personal Blog
 
 
-HTML 5
-CSS 3
+* HTML 5
+* CSS 3

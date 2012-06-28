@@ -111,12 +111,12 @@ ul.articles {
     float: left;
 }
 
-div.update {
+div.post {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
 
-div.update-title {
+div.post-title {
 	display: inline;
 	font-weight: bold;
 	font-size: 18px;
@@ -133,4 +133,13 @@ div.author {
 	text-align: right;
 	font-style: italic;
 	font-size: 14px;
+}
+
+footer {
+	width: 960px;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+    font-weight: bold;
+	margin: 20px;
 }
