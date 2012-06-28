@@ -110,3 +110,27 @@ ul.articles {
 	width: 490px;
     float: left;
 }
+
+div.update {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div.update-title {
+	display: inline;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+div.publication {
+	display: inline;
+	float: right;
+	font-style: italic;
+	font-size: 12px;
+}
+
+div.author {
+	text-align: right;
+	font-style: italic;
+	font-size: 14px;
+}
