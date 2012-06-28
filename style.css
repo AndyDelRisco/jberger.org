@@ -1,0 +1,145 @@
+/* Copyright 2012 Jacques Berger
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+body {
+	background: #E0D6CC;
+	color: #000000;
+	margin: 0;
+}
+
+h2.title {
+	background: #140A00;
+	color: #FFFFFF;
+	font-family: Arial, serif;
+	font-size: 16px;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+p.desc {
+	font-size: 11px;
+	margin-top: 0px;
+	margin-bottom: 18px;
+}
+
+img.curism {
+	display: block;
+	margin: auto;
+}
+
+div.bar-section {
+	margin-bottom: 30px;
+}
+
+#page {
+	width: 960px;
+	margin: 0 auto;
+	background: #B29980;
+}
+
+header {
+	padding-bottom: 40px;
+}
+
+header h1 {
+	font-family: Verdana, Arial, serif;
+	font-size: 18px;
+	font-style: italic;
+	margin: 0;
+}
+
+header h2 {
+	font-size: 12px;
+}
+
+#leftbar {
+	width: 200px;
+	float: left;
+}
+
+.bar-section ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.bar-section ul li {
+	margin-top: 12px;
+}
+
+.bar-section ul li ul {
+	list-style: disc outside;
+	margin-left: 20px;
+	font-size: 13px;
+}
+
+.bar-section ul li ul li {
+	margin-top: 0px;
+}
+
+.bar-section a {
+	color: #000000;
+}
+
+#rightbar {
+	width: 250px;
+	float: right;
+}
+
+span.category {
+	cursor: pointer;
+}
+
+ul.articles {
+	display: none;
+}
+
+#content {
+	margin-left: 10px;
+	width: 490px;
+    float: left;
+}
+
+div.post {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div.post-title {
+	display: inline;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+div.publication {
+	display: inline;
+	float: right;
+	font-style: italic;
+	font-size: 12px;
+}
+
+div.author {
+	text-align: right;
+	font-style: italic;
+	font-size: 14px;
+}
+
+footer {
+	width: 960px;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+    font-weight: bold;
+	margin: 20px;
+}
