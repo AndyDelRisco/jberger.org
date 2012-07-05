@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="updates.xsd">
+	<update>
+		<title>Un titre délicieux</title>
+		<date>2012-06-29</date>
+		<content>
+			<para>Le registre PC, pour Program Counter, contient l'adresse de la prochaine instruction à exécuter.
+Lors d'un cycle, nous exécutons l'instruction stockée à l'adresse dans le registre PC et nous
+changerons ensuite la valeur de PC pour qu'elle corresponde à l'adresse de la prochaine instruction
+que nous exécuterons.</para>
+			<para>Ce module accède à la mémoire pour aller chercher l'instruction stockée à l'adresse reçue du registre
+PC par l'entrée Read address. L'instruction, encodée sur 32 bits, est ensuite disponible pour son
+exécution. La sortie Instruction fournie les 32 bits de l'instruction.</para>
+			<link>http://www.jberger.org/</link>
+		</content>
+	</update>
+	<update>
+		<title>Un deuxième titre délicieux</title>
+		<date>2012-06-30</date>
+		<content>
+			<para>Le registre PC, pour Program Counter, contient l'adresse de la prochaine instruction à exécuter.
+Lors d'un cycle, nous exécutons l'instruction stockée à l'adresse dans le registre PC et nous
+changerons ensuite la valeur de PC pour qu'elle corresponde à l'adresse de la prochaine instruction
+que nous exécuterons.</para>
+			<para>Ce module accède à la mémoire pour aller chercher l'instruction stockée à l'adresse reçue du registre
+PC par l'entrée Read address. L'instruction, encodée sur 32 bits, est ensuite disponible pour son
+exécution. La sortie Instruction fournie les 32 bits de l'instruction.</para>
+			<link>http://www.jberger.org/</link>
+		</content>
+	</update>
+</updates>
