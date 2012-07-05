@@ -12,12 +12,10 @@
 							<xs:element name="date" type="xs:date" />
 							<xs:element name="content">
 								<xs:complexType>
-									<xs:sequence>
-										<xs:element minOccurs="0" maxOccurs="unbounded"
-											name="para" type="xs:string" />
-										<xs:element minOccurs="0" maxOccurs="unbounded"
-											name="link" type="xs:string" />
-									</xs:sequence>
+									<xs:choice minOccurs="0" maxOccurs="unbounded">
+										<xs:element name="para" type="xs:string" />
+										<xs:element name="link" type="xs:string" />
+									</xs:choice>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
