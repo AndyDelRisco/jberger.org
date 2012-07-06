@@ -92,6 +92,10 @@ header h2 {
 	color: #000000;
 }
 
+.bar-section .articles a:hover{
+    text-decoration: none;
+}
+
 #rightbar {
 	width: 250px;
 	float: right;
@@ -142,4 +146,8 @@ footer {
 	font-size: 12px;
     font-weight: bold;
 	margin: 20px;
+}
+
+p.section-title {
+	text-decoration: underline;
 }

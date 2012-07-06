@@ -69,8 +69,15 @@ require("functions.php");
 		</div>
 
 		<div id="content">
-			<h2 class="title">Mises à jour</h2>
-			<?php generateUpdatePosts(); ?>
+			<?php
+				if (isset($_GET["article"]) && file_exists("articles/" . $_GET["article"] . ".xml")) {
+					echo '<h2 class="title">Article</h2>';
+					generateArticle("articles/" . $_GET["article"] . ".xml");
+				} else {
+			        echo '<h2 class="title">Mises à jour</h2>';
+			        generateUpdatePosts();
+				} 
+			?>
 		</div>
 		
 		<?php require("scripts/footer.php"); ?>

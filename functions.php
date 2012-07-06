@@ -70,4 +70,38 @@ function generateUpdatePosts() {
 		}
 	}
 }
+
+function generateDocbookSection($sectionNode) {
+	$nodes = $sectionNode->childNodes;
+	for ($i = 0; $i < $nodes->length; $i++) {
+		$node = $nodes->item($i);
+		
+		if ($node->nodeName == "title") {
+			echo '<p class="section-title">' . $node->textContent . '</p>';
+		} else if ($node->nodeName == "para") {
+			echo "<p>" . $node->textContent . "</p>";
+		}
+	}
+}
+
+function generateArticle($filename) {
+	$document = new DOMDocument();
+	$document->load($filename);
+	$info = $document->getElementsByTagName("info")->item(0);
+	
+	echo '<div class="post">';
+	echo '<div class="post-title">' . 
+	     $info->getElementsByTagName("title")->item(0)->textContent . 
+	     '</div>';
+	echo '<div class="publication">Publiée le ' . 
+	     convertToReadableDate($info->getElementsByTagName("pubdate")->item(0)->textContent) . 
+	     '</div>';
+	$sections = $document->getElementsByTagName("section");
+	for ($i = 0; $i < $sections->length; $i++) {
+		generateDocbookSection($sections->item($i));
+	}
+
+	echo '<div class="author">Jacques Berger</div>';
+	echo "</div>";
+}
 ?>
