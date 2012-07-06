@@ -4,7 +4,7 @@
 	<section name="Première section">
 		<article>
 			<title>Premier titre</title>
-			<identifier>premier</identifier>
+			<identifier>document1</identifier>
 		</article>
 		<article>
 			<title>Un Deuxième Titre Beaucoup Plus Long que le Premier</title>
