@@ -14,63 +14,7 @@
    limitations under the License.
 */
 
-function convertDate($formatDate) {
-	$year = substr($formatDate, 0, 4);
-	$month = substr($formatDate, 5, 2);
-	$day = substr($formatDate, 8, 2);
-	
-	if ($day < 10) {
-		$day = substr($day, 1, 1);
-	}
-	
-	$readableDate = $day;
-	if ($day == 1) {
-		$readableDate = $readableDate . "er";
-	}
-	$readableDate = $readableDate . " ";
-	
-	switch($month) {
-		case 1:
-			$readableDate = $readableDate . "janvier";
-			break;
-		case 2:
-			$readableDate = $readableDate . "février";
-			break;
-		case 3:
-			$readableDate = $readableDate . "mars";
-			break;
-		case 4:
-			$readableDate = $readableDate . "avril";
-			break;
-		case 5:
-			$readableDate = $readableDate . "mai";
-			break;
-		case 6:
-			$readableDate = $readableDate . "juin";
-			break;
-		case 7:
-			$readableDate = $readableDate . "juillet";
-			break;
-		case 8: 
-			$readableDate = $readableDate . "août";
-			break;
-		case 9:
-			$readableDate = $readableDate . "septembre";
-			break;
-		case 10:
-			$readableDate = $readableDate . "octobre";
-			break;
-		case 11:
-			$readableDate = $readableDate . "novembre";
-			break;
-		case 12:
-			$readableDate = $readableDate . " ";
-			break;
-	}
-	$readableDate = $readableDate . " " . $year;
-	
-	return $readableDate;
-}
+require("scripts/dates.php");
 
 function generatePostContent($contentNode) {
 	$nodes = $contentNode->childNodes;
@@ -92,6 +36,15 @@ function generatePostContent($contentNode) {
 	}
 }
 
+function generateEmptyPost() {
+	echo '<div class="post">';
+	echo '<div class="post-title">Aucune mise à jour</div>';
+	echo '<div class="publication">Publiée aujourd\'hui</div>';
+	echo "<p>Aucune mise à jour n'a été publiée pour l'instant.</p>";
+	echo '<div class="author">Jacques Berger</div>';
+	echo "</div>";
+}
+
 function generateUpdatePosts() {
 	$document = new DOMDocument();
 	$document->load("xml/updates.xml");
@@ -99,19 +52,14 @@ function generateUpdatePosts() {
 	$updateCount = $updates->length;
 	
 	if ($updateCount == 0) {
-		echo '<div class="post">';
-		echo '<div class="post-title">Aucune mise à jour</div>';
-		echo '<div class="publication">Publiée aujourd\'hui</div>';
-		echo "<p>Aucune mise à jour n'a été publiée pour l'instant.</p>";
-		echo '<div class="author">Jacques Berger</div>';
-		echo "</div>";
+		generateEmptyPost();
 	} else {
 		for ($i = 0; $i < $updateCount; $i++) {
 			$updateNode = $updates->item($i);
 			
 			echo '<div class="post">';
 			echo '<div class="post-title">' . $updateNode->getElementsByTagName("title")->item(0)->textContent . '</div>';
-			echo '<div class="publication">Publiée le ' . convertDate($updateNode->getElementsByTagName("date")->item(0)->textContent) . '</div>';
+			echo '<div class="publication">Publiée le ' . convertToReadableDate($updateNode->getElementsByTagName("date")->item(0)->textContent) . '</div>';
 			generatePostContent($updateNode->getElementsByTagName("content")->item(0));
 			echo '<div class="author">Jacques Berger</div>';
 			echo "</div>";
