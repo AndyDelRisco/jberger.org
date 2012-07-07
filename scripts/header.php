@@ -15,6 +15,6 @@
 */
 ?>
 <header>
-	<h1>Développement de logiciels et enseignement de l'informatique</h1>
+	<h1>Développement de logiciels, enseignement de l'informatique et musique</h1>
 	<h2>Jacques Berger</h2>
 </header>

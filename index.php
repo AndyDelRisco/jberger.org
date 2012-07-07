@@ -20,7 +20,7 @@ require("functions.php");
 <html>
 <head>
 <meta charset="utf-8">
-<title>Jacques Berger - Développeur et enseignant</title>
+<title>Jacques Berger - Développeur, enseignant et musicien</title>
 <link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
