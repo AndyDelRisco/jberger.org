@@ -37,29 +37,7 @@ require("functions.php");
 		<div id="rightbar">
 			<div class="bar-section">
 				<h2 class="title">Articles</h2>
-				<ul>
-					<li><span class="category" onclick="toggleArticles('cat1');">Littérature
-							technique (2)</span>
-						<ul class="articles" id="cat1">
-							<li><a href="#">Critique de Clean Code : A Handbook of
-									Agile Software Craftmanship</a></li>
-							<li><a href="#">Critique de Working Effectively with
-									Legacy Code</a></li>
-						</ul></li>
-					<li><span class="category" onclick="toggleArticles('cat2');">Carrière
-							(1)</span>
-						<ul class="articles" id="cat2">
-							<li><a href="#">Améliorer son salaire en trois ans</a></li>
-						</ul></li>
-					<li><span class="category" onclick="toggleArticles('cat3');">Technologie
-							(4)</span>
-						<ul class="articles" id="cat3">
-							<li><a href="#">Programmation par aspects</a></li>
-							<li><a href="#">Comparaison d'Oracle et SQL Server</a></li>
-							<li><a href="#">Architecture Javascript</a></li>
-							<li><a href="#">PHP en 2012</a></li>
-						</ul></li>
-				</ul>
+				<?php generateArticleIndex(); ?>
 			</div>
 
 			<div class="bar-section">

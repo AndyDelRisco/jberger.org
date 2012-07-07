@@ -104,4 +104,37 @@ function generateArticle($filename) {
 	echo '<div class="author">Jacques Berger</div>';
 	echo "</div>";
 }
+
+function generateArticleIndex() {
+	$document = new DOMDocument();
+	$document->load("xml/articleindex.xml");
+	$sections = $document->getElementsByTagName("section");
+	
+	echo "<ul>";
+	for ($i = 0; $i < $sections->length; $i++) {
+		$section = $sections->item($i);
+		$articles = $section->getElementsByTagName("article");
+		
+		echo "<li>";
+		$categoryId = "cat" . $i;
+		$jsOnClickEvent = "toggleArticles('" . $categoryId . "');";
+		echo '<span class="category" onclick="' . $jsOnClickEvent . '">' .
+		     $section->getAttribute("name") . 
+		     " (" . $articles->length . ")</span>";
+		
+		echo '<ul class="articles" id="' . $categoryId . '">';
+		for ($j = 0; $j < $articles->length; $j++) {
+			$article = $articles->item($j);
+			echo "<li>";
+			echo '<a href="index.php?article=' . $article->getElementsByTagName("identifier")->item(0)->textContent . '">';
+			echo $article->getElementsByTagName("title")->item(0)->textContent;
+			echo "</a>";
+			echo "</li>";
+		}
+		echo "</ul>";
+		echo "</li>";
+	}
+
+	echo "</ul>";
+}
 ?>
