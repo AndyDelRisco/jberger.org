@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <index xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="articleindex.xsd">
-	<section name="Première section">
-		<article>
-			<title>Premier titre</title>
-			<identifier>document1</identifier>
-		</article>
-		<article>
-			<title>Un Deuxième Titre Beaucoup Plus Long que le Premier</title>
-			<identifier>deuxieme</identifier>
-		</article>
-		<article>
-			<title>Le troisième titre pour une super longue liste de titre : on veut que celui-ci soit extrêmement long</title>
-			<identifier>troisieme</identifier>
-		</article>
-	</section>
-	<section name="Encore une section">
-		<article>
-			<title>Un seul article dans cette section</title>
-			<identifier>quatrieme</identifier>
-		</article>
-	</section>
-	<section name="Dernière section">
-		<article>
-			<title>Dernier article</title>
-			<identifier>cinquieme</identifier>
-		</article>
-	</section>
 </index>
