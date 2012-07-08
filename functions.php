@@ -29,7 +29,8 @@ function generatePostContent($contentNode) {
 			if ($node->nodeName == "para") {
 				echo $node->textContent;
 			} else if ($node->nodeName == "link") {
-				echo '<a href="' . $node->textContent . '">' . $node->textContent . "</a>";
+				$url = $node->textContent;
+				echo "<a href=\"$url\">$url</a>";
 			}
 			echo "</p>";
 		}
@@ -58,8 +59,10 @@ function generateUpdatePosts() {
 			$updateNode = $updates->item($i);
 			
 			echo '<div class="post">';
-			echo '<div class="post-title">' . $updateNode->getElementsByTagName("title")->item(0)->textContent . '</div>';
-			echo '<div class="publication">Publiée le ' . convertToReadableDate($updateNode->getElementsByTagName("date")->item(0)->textContent) . '</div>';
+			$title = $updateNode->getElementsByTagName("title")->item(0)->textContent;
+			echo "<div class=\"post-title\">$title</div>";
+			$readableDate = convertToReadableDate($updateNode->getElementsByTagName("date")->item(0)->textContent);
+			echo "<div class=\"publication\">Publiée le $readableDate</div>";
 			generatePostContent($updateNode->getElementsByTagName("content")->item(0));
 			echo '<div class="author">Jacques Berger</div>';
 			echo "</div>";
@@ -77,9 +80,9 @@ function generateDocbookSection($sectionNode) {
 		$node = $nodes->item($i);
 		
 		if ($node->nodeName == "title") {
-			echo '<p class="section-title">' . $node->textContent . '</p>';
+			echo "<p class=\"section-title\">$node->textContent</p>";
 		} else if ($node->nodeName == "para") {
-			echo "<p>" . $node->textContent . "</p>";
+			echo "<p>$node->textContent</p>";
 		}
 	}
 }
@@ -90,12 +93,10 @@ function generateArticle($filename) {
 	$info = $document->getElementsByTagName("info")->item(0);
 	
 	echo '<div class="post">';
-	echo '<div class="post-title">' . 
-	     $info->getElementsByTagName("title")->item(0)->textContent . 
-	     '</div>';
-	echo '<div class="publication">Publiée le ' . 
-	     convertToReadableDate($info->getElementsByTagName("pubdate")->item(0)->textContent) . 
-	     '</div>';
+	$title = $info->getElementsByTagName("title")->item(0)->textContent; 
+	echo "<div class=\"post-title\">$title</div>";
+	$readableDate = convertToReadableDate($info->getElementsByTagName("pubdate")->item(0)->textContent); 
+	echo "<div class=\"publication\">Publiée le $readableDate</div>";
 	$sections = $document->getElementsByTagName("section");
 	for ($i = 0; $i < $sections->length; $i++) {
 		generateDocbookSection($sections->item($i));
@@ -117,18 +118,17 @@ function generateArticleIndex() {
 		
 		echo "<li>";
 		$categoryId = "cat" . $i;
-		$jsOnClickEvent = "toggleArticles('" . $categoryId . "');";
-		echo '<span class="category" onclick="' . $jsOnClickEvent . '">' .
-		     $section->getAttribute("name") . 
-		     " (" . $articles->length . ")</span>";
+		$jsOnClickEvent = "toggleArticles('$categoryId');";
+		$categoryName = $section->getAttribute("name");
+		echo "<span class=\"category\" onclick=\"$jsOnClickEvent\">$categoryName ($articles->length)</span>";
 		
-		echo '<ul class="articles" id="' . $categoryId . '">';
+		echo "<ul class=\"articles\" id=\"$categoryId\">";
 		for ($j = 0; $j < $articles->length; $j++) {
 			$article = $articles->item($j);
 			echo "<li>";
-			echo '<a href="index.php?article=' . $article->getElementsByTagName("identifier")->item(0)->textContent . '">';
-			echo $article->getElementsByTagName("title")->item(0)->textContent;
-			echo "</a>";
+			$articleIdentifier = $article->getElementsByTagName("identifier")->item(0)->textContent;
+			$articleTitle = $article->getElementsByTagName("title")->item(0)->textContent; 
+			echo "<a href=\"index.php?article=$articleIdentifier\">$articleTitle</a>";
 			echo "</li>";
 		}
 		echo "</ul>";
