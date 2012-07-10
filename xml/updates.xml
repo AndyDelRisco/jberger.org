@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<updates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<blog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="updates.xsd">
-	<update>
+	<entry>
 		<title>Nouveau visage du site</title>
 		<date>2012-07-07</date>
 		<content>
@@ -22,5 +22,5 @@
 			<para>J'ajouterai du contenu quand le temps me le permettra.
 			      J'espère que vous y trouverez quelque chose d'intéressant.</para>
 		</content>
-	</update>
-</updates>
+	</entry>
+</blog>

@@ -52,8 +52,8 @@ require("functions.php");
 					echo '<h2 class="title">Article</h2>';
 					generateArticle("articles/" . $_GET["article"] . ".xml");
 				} else {
-			        echo '<h2 class="title">Mises à jour</h2>';
-			        generateUpdatePosts();
+			        echo '<h2 class="title">Blog</h2>';
+			        generateBlogPosts();
 				} 
 			?>
 		</div>

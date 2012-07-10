@@ -2,10 +2,10 @@
 
 <xs:schema attributeFormDefault="unqualified"
 	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:element name="updates">
+	<xs:element name="blog">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element minOccurs="0" maxOccurs="unbounded" name="update">
+				<xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="title" type="xs:string" />

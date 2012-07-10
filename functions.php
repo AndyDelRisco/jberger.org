@@ -46,28 +46,28 @@ function generateEmptyPost() {
 	echo "</div>";
 }
 
-function generateUpdatePosts() {
+function generateBlogPosts() {
 	$document = new DOMDocument();
 	$document->load("xml/updates.xml");
-	$updates = $document->getElementsByTagName("update");
-	$updateCount = $updates->length;
+	$entries = $document->getElementsByTagName("entry");
+	$entryCount = $entries->length;
 	
-	if ($updateCount == 0) {
+	if ($entryCount == 0) {
 		generateEmptyPost();
 	} else {
-		for ($i = 0; $i < $updateCount; $i++) {
-			$updateNode = $updates->item($i);
+		for ($i = 0; $i < $entryCount; $i++) {
+			$entryNode = $entries->item($i);
 			
 			echo '<div class="post">';
-			$title = $updateNode->getElementsByTagName("title")->item(0)->textContent;
+			$title = $entryNode->getElementsByTagName("title")->item(0)->textContent;
 			echo "<div class=\"post-title\">$title</div>";
-			$readableDate = convertToReadableDate($updateNode->getElementsByTagName("date")->item(0)->textContent);
+			$readableDate = convertToReadableDate($entryNode->getElementsByTagName("date")->item(0)->textContent);
 			echo "<div class=\"publication\">Publiée le $readableDate</div>";
-			generatePostContent($updateNode->getElementsByTagName("content")->item(0));
+			generatePostContent($entryNode->getElementsByTagName("content")->item(0));
 			echo '<div class="author">Jacques Berger</div>';
 			echo "</div>";
 			
-			if ($i < ($updateCount - 1)) {
+			if ($i < ($entryCount - 1)) {
 				echo "<hr>";
 			}
 		}
