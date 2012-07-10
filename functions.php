@@ -48,7 +48,7 @@ function generateEmptyPost() {
 
 function generateBlogPosts() {
 	$document = new DOMDocument();
-	$document->load("xml/updates.xml");
+	$document->load("xml/blog.xml");
 	$entries = $document->getElementsByTagName("entry");
 	$entryCount = $entries->length;
 	
