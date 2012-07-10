@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="updates.xsd">
+	xsi:noNamespaceSchemaLocation="blog.xsd">
 	<entry>
 		<title>Nouveau visage du site</title>
 		<date>2012-07-07</date>
