@@ -37,39 +37,26 @@ function generatePostContent($contentNode) {
 	}
 }
 
-function generateEmptyPost() {
-	echo '<div class="post">';
-	echo '<div class="post-title">Aucune mise à jour</div>';
-	echo '<div class="publication">Publiée aujourd\'hui</div>';
-	echo "<p>Aucune mise à jour n'a été publiée pour l'instant.</p>";
-	echo '<div class="author">Jacques Berger</div>';
-	echo "</div>";
-}
-
 function generateBlogPosts() {
 	$document = new DOMDocument();
 	$document->load("xml/blog.xml");
 	$entries = $document->getElementsByTagName("entry");
 	$entryCount = $entries->length;
 	
-	if ($entryCount == 0) {
-		generateEmptyPost();
-	} else {
-		for ($i = 0; $i < $entryCount; $i++) {
-			$entryNode = $entries->item($i);
-			
-			echo '<div class="post">';
-			$title = $entryNode->getElementsByTagName("title")->item(0)->textContent;
-			echo "<div class=\"post-title\">$title</div>";
-			$readableDate = convertToReadableDate($entryNode->getElementsByTagName("date")->item(0)->textContent);
-			echo "<div class=\"publication\">Publiée le $readableDate</div>";
-			generatePostContent($entryNode->getElementsByTagName("content")->item(0));
-			echo '<div class="author">Jacques Berger</div>';
-			echo "</div>";
-			
-			if ($i < ($entryCount - 1)) {
-				echo "<hr>";
-			}
+	for ($i = 0; $i < $entryCount; $i++) {
+		$entryNode = $entries->item($i);
+		
+		echo '<div class="post">';
+		$title = $entryNode->getElementsByTagName("title")->item(0)->textContent;
+		echo "<div class=\"post-title\">$title</div>";
+		$readableDate = convertToReadableDate($entryNode->getElementsByTagName("date")->item(0)->textContent);
+		echo "<div class=\"publication\">Publiée le $readableDate</div>";
+		generatePostContent($entryNode->getElementsByTagName("content")->item(0));
+		echo '<div class="author">Jacques Berger</div>';
+		echo "</div>";
+		
+		if ($i < ($entryCount - 1)) {
+			echo "<hr>";
 		}
 	}
 }
