@@ -25,14 +25,12 @@ function generatePostContent($contentNode) {
 		for ($i = 0; $i < $nodeCount; $i++) {
 			$node = $nodes->item($i);
 			
-			echo "<p>";
 			if ($node->nodeName == "para") {
-				echo $node->textContent;
+				echo "<p>$node->textContent</p>";
 			} else if ($node->nodeName == "link") {
 				$url = $node->textContent;
-				echo "<a href=\"$url\">$url</a>";
+				echo "<p><a href=\"$url\">$url</a></p>";
 			}
-			echo "</p>";
 		}
 	}
 }
