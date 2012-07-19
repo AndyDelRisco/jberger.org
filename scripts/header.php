@@ -17,4 +17,8 @@
 <header>
 	<h1>Développement de logiciels, enseignement de l'informatique et musique</h1>
 	<h2>Jacques Berger</h2>
+	<!-- [if lt IE 9]>
+		<marquee>Vous utilisez une ancienne version d'Internet Explorer.
+		         Rendez-vous service et téléchargez la dernière version.</marquee>
+	<![endif]-->
 </header>
