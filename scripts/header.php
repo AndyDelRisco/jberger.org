@@ -17,8 +17,10 @@
 <header>
 	<h1>Développement de logiciels, enseignement de l'informatique et musique</h1>
 	<h2>Jacques Berger</h2>
-	<!-- [if lt IE 9]>
+	<!--[if lt IE 9]>
 		<marquee>Vous utilisez une ancienne version d'Internet Explorer.
-		         Rendez-vous service et téléchargez la dernière version.</marquee>
+		         Votre version ne supporte pas les balises HTML5.
+		         Rendez-vous service et téléchargez un fureteur à jour dès maintenant 
+		         (Internet Explorer 9, Firefox ou Chrome).</marquee>
 	<![endif]-->
 </header>
