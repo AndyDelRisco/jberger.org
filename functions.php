@@ -48,7 +48,7 @@ function generateBlogPosts() {
 		$title = $entryNode->getElementsByTagName("title")->item(0)->textContent;
 		echo "<div class=\"post-title\">$title</div>";
 		$readableDate = convertToReadableDate($entryNode->getElementsByTagName("date")->item(0)->textContent);
-		echo "<div class=\"publication\">Publiée le $readableDate</div>";
+		echo "<div class=\"publication\">Publié le $readableDate</div>";
 		generatePostContent($entryNode->getElementsByTagName("content")->item(0));
 		echo '<div class="author">Jacques Berger</div>';
 		echo "</div>";
