@@ -14,33 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-function convertMonth($month) {
-	switch ($month) {
-		case 1:
-			return "janvier";
-		case 2:
-			return "février";
-		case 3:
-			return "mars";
-		case 4:
-			return "avril";
-		case 5:
-			return "mai";
-		case 6:
-			return "juin";
-		case 7:
-			return "juillet";
-		case 8:
-			return "août";
-		case 9:
-			return "septembre";
-		case 10:
-			return "octobre";
-		case 11:
-			return "novembre";
-		case 12:
-			return "décembre";
-	}
+function convertMonth($month_in_number) {
+	$months = array("janvier",
+			"février",
+			"mars",
+			"avril",
+			"mai",
+			"juin",
+			"juillet",
+			"août",
+			"septembre",
+			"octobre",
+			"novembre",
+			"décembre");
+	return $months[$month_in_number-1];
 }
 
 function convertToReadableDate($formatDate) {
