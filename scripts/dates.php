@@ -14,20 +14,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-function convertMonth($month_in_number) {
+function convertMonth($monthNumber) {
 	$months = array("janvier",
-			"février",
-			"mars",
-			"avril",
-			"mai",
-			"juin",
-			"juillet",
-			"août",
-			"septembre",
-			"octobre",
-			"novembre",
-			"décembre");
-	return $months[$month_in_number-1];
+					"février",
+					"mars",
+					"avril",
+					"mai",
+					"juin",
+					"juillet",
+					"août",
+					"septembre",
+					"octobre",
+					"novembre",
+					"décembre");
+	return $months[$monthNumber - 1];
 }
 
 function convertToReadableDate($formatDate) {
