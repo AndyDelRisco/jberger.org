@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="xsd/course.xsd">
+          xsi:noNamespaceSchemaLocation="http://jberger.org/notes/xsd/students.xsd">
 </students>
