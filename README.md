@@ -14,4 +14,5 @@ Technologies in the project:
 * JQuery 1.7.0
 * PHP 5.3.8
 * XML
+* XQuery
 * XSD

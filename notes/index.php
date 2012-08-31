@@ -73,7 +73,7 @@ function displayLoginPrompt() {
 	echo "</table>";
 	echo "<p><input type='submit' value='Valider'></p>";
 	echo "</form>";
-	echo '<a href="help.html" style="font-size:10px">' . "Je ne connais pas mon nom d'utilisateur ou mon mot de passe" . "</a>";
+	echo '<a href="help.html" style="font-size:11px">' . "Je ne connais pas mon nom d'utilisateur ou mon mot de passe" . "</a>";
 }
 
 function displayLoginError() {
