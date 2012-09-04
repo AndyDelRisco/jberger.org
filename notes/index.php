@@ -102,15 +102,34 @@ function validateLogin($students, $login, $password) {
 function checkLoginAttempt() {
 	if (isset($_POST["login"]) || isset($_POST["password"]))
 		return true;
+	
+	if (isset($_COOKIE["login"]) && $_COOKIE["login"] != "" &&
+	    isset($_COOKIE["password"]) && $_COOKIE["password"] != "")
+	    return true;
 
 	return false;
 }
 
 function checkLogin($students) {
-	if (!isset($_POST["login"]) || !isset($_POST["password"]))
-		return false;
+	$login = "";
+	$password = "";
 	
-	return validateLogin($students, $_POST["login"], $_POST["password"]);
+	if (isset($_POST["login"])) {
+		$login = $_POST["login"];
+		if (isset($_POST["password"]))
+			$password = $_POST["password"];
+	} else {
+		if (isset($_COOKIE["login"]) && $_COOKIE["login"] != "") {
+			$login = $_COOKIE["login"];
+			if (isset($_COOKIE["password"]) && $_COOKIE["password"] != "")
+			    $password = $_COOKIE["password"];
+		}
+	}
+	
+	if ($login == "" || $password == "")
+	    return false;
+	
+	return validateLogin($students, $login, $password);
 }
 
 function getStudentId() {
@@ -145,9 +164,10 @@ $studentId = getStudentId();
 	<div>
 	<?php
 		if ($loginAttempted) {
-			if ($loginSucceeded)
+			if ($loginSucceeded) {
+				displayDisconnect();
 				displayLectureNotes($studentsDocument, $studentId);
-			else {
+			} else {
 				displayLoginError();
 				displayLoginPrompt();
 			}

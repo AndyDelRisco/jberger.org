@@ -1,6 +1,6 @@
 function getCookieExpirationDate() {
     var expirationDate = new Date();
-    expirationDate.setDate(expirationDate.getDate() + 90);
+    expirationDate.setDate(expirationDate.getDate() + 30);
     return expirationDate.toUTCString();	
 }
 
