@@ -14,9 +14,11 @@ function writeLoginCookie(login, password) {
 }
 
 function saveCookie() {
-	var login = document.getElementById("login").value;
-	var password = document.getElementById("password").value;
-	writeLoginCookie(login, password);
+	if (document.getElementById("setCookie").checked) {
+		var login = document.getElementById("login").value;
+		var password = document.getElementById("password").value;
+		writeLoginCookie(login, password);
+	}
 }
 
 function resetCookie() {

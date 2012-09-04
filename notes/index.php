@@ -71,6 +71,7 @@ function displayLoginPrompt() {
 	echo "<td><input type='password' name='password' id='password'></td>";
 	echo "</tr>";
 	echo "</table>";
+	echo '<p><input type="checkbox" id="setCookie" checked="checked"> Conserver la connexion</p>';
 	echo "<p><input type='submit' value='Valider'></p>";
 	echo "</form>";
 	echo '<a href="help.html" style="font-size:11px">' . "Je ne connais pas mon nom d'utilisateur ou mon mot de passe" . "</a>";
@@ -135,6 +136,10 @@ function checkLogin($students) {
 function getStudentId() {
 	if (isset($_POST["login"]))
 		return $_POST["login"];
+	
+	if (isset($_COOKIE["login"]))
+	    return $_COOKIE["login"];
+	
 	return ""; 
 }
 
