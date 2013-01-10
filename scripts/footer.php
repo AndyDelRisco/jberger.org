@@ -14,4 +14,4 @@
    limitations under the License.
 */
 ?>
-<footer>&copy; 2012 Jacques Berger</footer>
+<footer>&copy; 2012-2013 Jacques Berger</footer>
