@@ -1,5 +1,5 @@
 <?php
-/* Copyright 2012 Jacques Berger
+/* Copyright 2013 Jacques Berger
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+require("dates.php");
+
 function createXPathExplorer($fileName) {
 	$xml = new DOMDocument();
 	$xml->Load($fileName);
@@ -24,19 +26,18 @@ function getCourseTextElement($xPath, $elementName) {
 	return $xPath->query("/course/$elementName")->item(0)->nodeValue;
 }
 
-function generateAssignmentList($xPath, $dateFilter) {
+function generateDocumentList($xPath, $dateFilter) {
 	echo "<ul>";
-	$list = $xPath->query("/course/assignment[publication <= $dateFilter]");
-	$assignmentNumber = $list->length;
-	if ($assignmentNumber == 0) {
+	$list = $xPath->query("/course/document[publication <= $dateFilter]");
+	$documentNumber = $list->length;
+	if ($documentNumber == 0) {
 		echo "<li>À venir...</li>";
 	} else {
-		for ($i = 0; $i < $assignmentNumber; $i++) {
+		for ($i = 0; $i < $documentNumber; $i++) {
 			$node = $list->item($i);
 			echo "<li>";
-			echo '<a href="';
-			echo $node->getElementsByTagName("link")->item(0)->nodeValue;
-			echo '">';
+			$linkContent = $node->getElementsByTagName("link")->item(0)->nodeValue; 
+			echo "<a href='$linkContent'>";
 			echo $node->getAttribute("name");
 			echo "</a>";
 			echo "</li>";
@@ -65,7 +66,7 @@ function generateContentList($node) {
 	$contentList = $node->getElementsByTagName("content");
 	$contentNumber = $contentList->length;
 	if ($contentNumber > 0) {
-		echo "<p>Cours (" . $node->getElementsByTagName("classdate")->item(0)->nodeValue . ") :</p>";
+		echo "<p>Cours du " . convertToReadableDateTEMP($node->getElementsByTagName("classdate")->item(0)->nodeValue) . " :</p>";
 		echo "<ul>";
 		for ($i = 0; $i < $contentNumber; $i++)
 		echo "<li>" . $contentList->item($i)->nodeValue . "</li>";
@@ -73,17 +74,38 @@ function generateContentList($node) {
 	}
 }
 
-function generateLabList($node) {
-	$labList = $node->getElementsByTagName("lab");
-	$labNumber = $labList->length;
-	echo "<p>Laboratoire (" . $node->getElementsByTagName("labdate")->item(0)->nodeValue . ") :</p>";
-	echo "<ul>";
-	if ($labNumber == 0)
-	echo "<li>Aucun</li>";
-	else {
-		for ($i = 0; $i < $labNumber; $i++)
-		echo "<li>" . $labList->item($i)->nodeValue . "</li>";
-	}
-	echo "</ul>";
+function generateEmptyPost() {
+	echo '<div class="post">';
+	echo '<div class="post-title">Cours</div>';
+	echo '<div class="publication">...</div>';
+	echo "<p>Je ne donne pas ce cours en ce moment...</p>";
+	echo "</div>";
 }
+
+function generateSinglePost($node) {
+	echo '<div class="post">';
+	echo '<div class="post-title">';
+	echo 'Semaine ' . $node->getAttribute("number");
+	echo "</div>";
+	echo '<div class="publication">';
+	echo "Publié le " . convertToReadableDateTEMP($node->getElementsByTagName("publication")->item(0)->nodeValue);
+	echo '</div>';
+	generateContentList($node);
+	echo "</div>";
+}
+
+function generatePosts($xPath, $dateFilter) {
+	$weeks = $xPath->query("/course/week[publication <= $dateFilter]");
+	$weekNumber = $weeks->length;
+	if ($weekNumber == 0) {
+		generateEmptyPost();
+	} else {
+		for ($i = $weekNumber - 1; $i >= 0; $i--) {
+			generateSinglePost($weeks->item($i));
+			if ($i > 0)
+			echo "<hr>";
+		}
+	}
+}
+
 ?>

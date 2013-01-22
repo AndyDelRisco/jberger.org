@@ -47,4 +47,22 @@ function convertToReadableDate($formatDate) {
 
 	return $readableDate;
 }
+
+function convertToReadableDateTEMP($formatDate) {
+	$year = substr($formatDate, 0, 4);
+	$month = substr($formatDate, 4, 2);
+	$day = substr($formatDate, 6, 2);
+
+	if ($day < 10) {
+		$day = substr($day, 1, 1);
+	}
+
+	$readableDate = $day;
+	if ($day == 1) {
+		$readableDate = $readableDate . "er";
+	}
+	$readableDate = $readableDate . " " . convertMonth($month) . " " . $year;
+
+	return $readableDate;
+}
 ?>
