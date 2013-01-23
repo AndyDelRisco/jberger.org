@@ -78,9 +78,9 @@ function generateLabList($node) {
 	$labNumber = $labList->length;
 	echo "<p>Laboratoire (" . $node->getElementsByTagName("labdate")->item(0)->nodeValue . ") :</p>";
 	echo "<ul>";
-	if ($labNumber == 0)
-	echo "<li>Aucun</li>";
-	else {
+	if ($labNumber == 0) {
+		echo "<li>Aucun</li>";
+	} else {
 		for ($i = 0; $i < $labNumber; $i++)
 		echo "<li>" . $labList->item($i)->nodeValue . "</li>";
 	}

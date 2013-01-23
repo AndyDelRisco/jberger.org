@@ -151,7 +151,7 @@ function getStudentCourseElements($students, $studentId) {
 	return $students->query("/students/student[@id='$studentId']/course");
 }
 
-$studentsDocument = createXPathExplorer("students.xml");
+$studentsDocument = createXPathExplorer("../students.xml");
 $loginAttempted = checkLoginAttempt();
 $loginSucceeded = checkLogin($studentsDocument);
 $studentId = getStudentId();

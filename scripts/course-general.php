@@ -36,7 +36,7 @@ function generateDocumentList($xPath, $dateFilter) {
 		for ($i = 0; $i < $documentNumber; $i++) {
 			$node = $list->item($i);
 			echo "<li>";
-			$linkContent = $node->getElementsByTagName("link")->item(0)->nodeValue; 
+			$linkContent = $node->getElementsByTagName("link")->item(0)->nodeValue;
 			echo "<a href='$linkContent'>";
 			echo $node->getAttribute("name");
 			echo "</a>";
@@ -66,10 +66,11 @@ function generateContentList($node) {
 	$contentList = $node->getElementsByTagName("content");
 	$contentNumber = $contentList->length;
 	if ($contentNumber > 0) {
-		echo "<p>Cours du " . convertToReadableDateTEMP($node->getElementsByTagName("classdate")->item(0)->nodeValue) . " :</p>";
+		echo "<p>Cours du " . convertToReadableDate($node->getElementsByTagName("classdate")->item(0)->nodeValue) . " :</p>";
 		echo "<ul>";
-		for ($i = 0; $i < $contentNumber; $i++)
-		echo "<li>" . $contentList->item($i)->nodeValue . "</li>";
+		for ($i = 0; $i < $contentNumber; $i++) {
+			echo "<li>" . $contentList->item($i)->nodeValue . "</li>";
+		}
 		echo "</ul>";
 	}
 }
@@ -88,7 +89,7 @@ function generateSinglePost($node) {
 	echo 'Semaine ' . $node->getAttribute("number");
 	echo "</div>";
 	echo '<div class="publication">';
-	echo "Publié le " . convertToReadableDateTEMP($node->getElementsByTagName("publication")->item(0)->nodeValue);
+	echo "Publié le " . convertToReadableDate($node->getElementsByTagName("publication")->item(0)->nodeValue);
 	echo '</div>';
 	generateContentList($node);
 	echo "</div>";
@@ -102,10 +103,10 @@ function generatePosts($xPath, $dateFilter) {
 	} else {
 		for ($i = $weekNumber - 1; $i >= 0; $i--) {
 			generateSinglePost($weeks->item($i));
-			if ($i > 0)
-			echo "<hr>";
+			if ($i > 0) {
+				echo "<hr>";
+			}
 		}
 	}
 }
-
 ?>
