@@ -57,7 +57,6 @@ require("functions.php");
 				} 
 			?>
 		</div>
-		
 		<?php require("scripts/footer.php"); ?>
 	</div>
 </body>
