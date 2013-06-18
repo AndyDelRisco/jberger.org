@@ -78,7 +78,7 @@ $today = date("Ymd");
 		</div>
 
 		<div id="sidebar">
-			<?php include("../twitter.php"); ?>
+			<?php include("../scripts/twitter.php"); ?>
 			<br />
 			<ul>
 				<li>
