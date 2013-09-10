@@ -65,7 +65,6 @@ $today = date("Ymd");
 			<ul>
 				<li class="current_page_item"><a href="index.php">Accueil</a></li>
 				<li><a href="material.html">Matériel complémentaire</a></li>
-				<li><a href="http://notes.jberger.org/">Notes de cours</a></li>
 				<li><a href="mailto:berger.jacques@uqam.ca">Contact</a></li>
 			</ul>
 		</div>
