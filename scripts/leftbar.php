@@ -25,6 +25,9 @@
 				<p class="desc">Développement de logiciels dans un environnement
 					Agile</p>
 			</li>
+			<li><a href="/inf4150">INF4150</a>
+				<p class="desc">Interfaces personnes-machines</p>
+			</li>
 			<li><a href="/inf4170">INF4170</a>
 				<p class="desc">Architecture des ordinateurs</p>
 			</li>

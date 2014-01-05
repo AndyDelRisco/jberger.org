@@ -68,11 +68,42 @@ function generateContentList($node) {
 	if ($contentNumber > 0) {
 		echo "<p>Cours du " . convertToReadableDate($node->getElementsByTagName("classdate")->item(0)->nodeValue) . " :</p>";
 		echo "<ul>";
-		for ($i = 0; $i < $contentNumber; $i++) {
-			echo "<li>" . $contentList->item($i)->nodeValue . "</li>";
+    for ($i = 0; $i < $contentNumber; $i++) {
+      $content = $contentList->item($i);
+			echo "<li>" . getContentLabel($content) . getContentLink($content) . "</li>";
 		}
 		echo "</ul>";
 	}
+}
+
+function getContentLabel($content) {
+  return $content->getElementsByTagName("label")->item(0)->nodeValue;
+}
+
+function getContentLink($content) {
+  $linkList = $content->getElementsByTagName("link");
+  if ($linkList->length == 0) {
+    return "";
+  }
+
+  $link = $linkList->item(0)->nodeValue;
+  return " (<a href='$link'>fichier</a>)";
+}
+
+function generateLabList($node) {
+	$labList = $node->getElementsByTagName("lab");
+	$labNumber = $labList->length;
+  echo "<p>Laboratoire du " . convertToReadableDate($node->getElementsByTagName("labdate")->item(0)->nodeValue) . " :</p>";
+  echo "<ul>";
+  if ($labNumber == 0) {
+    echo "<li>Aucun</li>";
+  } else {
+    for ($i = 0; $i < $labNumber; $i++) {
+      $lab = $labList->item($i);
+			echo "<li>" . $lab->nodeValue . "</li>";
+		}
+	}
+  echo "</ul>";
 }
 
 function generateEmptyPost() {
@@ -91,7 +122,8 @@ function generateSinglePost($node) {
 	echo '<div class="publication">';
 	echo "Publié le " . convertToReadableDate($node->getElementsByTagName("publication")->item(0)->nodeValue);
 	echo '</div>';
-	generateContentList($node);
+  generateContentList($node);
+  generateLabList($node);
 	echo "</div>";
 }
 
