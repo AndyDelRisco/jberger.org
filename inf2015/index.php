@@ -95,7 +95,7 @@ $today = date("Ymd");
 	</div>
 	<div id="footer">
 		<p>
-			&copy; 2012-2013 Jacques Berger. Tous droits réservés. Design par <a
+			&copy; 2012-2014 Jacques Berger. Tous droits réservés. Design par <a
 				href="http://www.freecsstemplates.org/">Free CSS Templates</a>.
 		</p>
 	</div>
