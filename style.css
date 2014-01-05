@@ -93,7 +93,7 @@ header h2 {
 }
 
 .bar-section .articles a:hover{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 #rightbar {
@@ -110,9 +110,9 @@ ul.articles {
 }
 
 #content {
-	margin-left: 10px;
-	width: 490px;
-    float: left;
+  margin-left: 10px;
+  width: 490px;
+  float: left;
 }
 
 div.post {
@@ -150,4 +150,8 @@ footer {
 
 p.section-title {
 	text-decoration: underline;
+}
+
+#additional-material a {
+  color: #000;
 }

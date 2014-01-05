@@ -141,4 +141,21 @@ function generatePosts($xPath, $dateFilter) {
 		}
 	}
 }
+
+function generateAdditionalMaterial($xPath) {
+  $additionalMaterial = $xPath->query("/course/additional-material/item");
+  if ($additionalMaterial->length > 0) {
+    echo "<div id='additional-material'>";
+    echo "<h2 class='title'>Matériel complémentaire</h2>";
+    echo "<ul>";
+    for ($i = 0; $i < $additionalMaterial->length; $i++) {
+      $item = $additionalMaterial->item($i);
+      $label = $item->getElementsByTagName("label")->item(0)->nodeValue;
+      $link = $item->getElementsByTagName("link")->item(0)->nodeValue;
+      echo "<li><a href='$link'>$label</a></li>";
+    }
+    echo "</ul>";
+    echo "</div>";
+  }
+}
 ?>
