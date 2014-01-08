@@ -91,19 +91,22 @@ function getContentLink($content) {
 }
 
 function generateLabList($node) {
-	$labList = $node->getElementsByTagName("lab");
-	$labNumber = $labList->length;
-  echo "<p>Laboratoire du " . convertToReadableDate($node->getElementsByTagName("labdate")->item(0)->nodeValue) . " :</p>";
-  echo "<ul>";
-  if ($labNumber == 0) {
-    echo "<li>Aucun</li>";
-  } else {
-    for ($i = 0; $i < $labNumber; $i++) {
-      $lab = $labList->item($i);
-			echo "<li>" . $lab->nodeValue . "</li>";
-		}
-	}
-  echo "</ul>";
+  $labdateList = $node->getElementsByTagName("labdate");
+  if ($labdateList->length > 0) {
+    $labList = $node->getElementsByTagName("lab");
+    $labNumber = $labList->length;
+    echo "<p>Laboratoire du " . convertToReadableDate($labdateList->item(0)->nodeValue) . " :</p>";
+    echo "<ul>";
+    if ($labNumber == 0) {
+      echo "<li>Aucun</li>";
+    } else {
+      for ($i = 0; $i < $labNumber; $i++) {
+        $lab = $labList->item($i);
+        echo "<li>" . $lab->nodeValue . "</li>";
+      }
+    }
+    echo "</ul>";
+  }
 }
 
 function generateEmptyPost() {
